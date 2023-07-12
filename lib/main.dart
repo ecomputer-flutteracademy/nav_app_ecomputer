@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:nav_app_ecomputer/core/routes/app_router.dart';
 
-void main() {
+import 'core/locator/locator.dart';
+
+void main() async {
+  setupLocator();
   runApp(const MainApp());
 }
 
