@@ -18,6 +18,7 @@ class StartCubit extends Cubit<StartState> {
   }
 
   Future<void> checkIfUserIsLogged({required bool isUserLogged}) async {
+    print(isUserLogged);
     emit(
       state.copyWith(isLogged: isUserLogged),
     );

@@ -25,17 +25,34 @@ enum AppRoutes {
 
 final useBloc = locator<StartCubit>();
 
+final List<String> routesWihtoutAuth = [
+  // '/',
+  '/welcome',
+  '/welcome/login',
+  '/welcome/register',
+];
+
+final List<String> routesWihtAuth = [
+  '/home',
+  '/home/camisetas',
+  '/home/bicicletas',
+];
+
 final goRouter = GoRouter(
   debugLogDiagnostics: true,
   refreshListenable: GoRouterRefreshStream(useBloc.stream),
   redirect: (context, state) {
-    if (useBloc.state.isLogged == false) {
+    print(!routesWihtoutAuth.contains(state.location));
+    print(!routesWihtAuth.contains(state.location));
+    if (useBloc.state.isLogged == false &&
+        !routesWihtoutAuth.contains(state.location)) {
       return '/welcome';
-    } else if (useBloc.state.isLogged == true) {
+    } else if (useBloc.state.isLogged == true &&
+        !routesWihtAuth.contains(state.location)) {
       return '/home';
-    } else {
-      return '/';
     }
+
+    return null;
   },
   routes: [
     GoRoute(

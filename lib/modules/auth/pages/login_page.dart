@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nav_app_ecomputer/core/routes/app_router.dart';
+import 'package:nav_app_ecomputer/core/locator/locator.dart';
+import 'package:nav_app_ecomputer/modules/start/cubits/cubit/start_cubit.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -22,7 +23,8 @@ class LoginPage extends StatelessWidget {
           FloatingActionButton(
             heroTag: 'F2',
             onPressed: () {
-              context.goNamed(AppRoutes.camisetas.name);
+              // context.goNamed(AppRoutes.camisetas.name);
+              locator<StartCubit>().checkIfUserIsLogged(isUserLogged: true);
             },
             child: Icon(
               Icons.arrow_forward,
