@@ -10,6 +10,13 @@ class FormValidator {
     return null;
   }
 
+  String? isValidName(String? text) {
+    if (text == null || text.length < 3) {
+      return "Este Nombre es muy Corto";
+    }
+    return null;
+  }
+
   /// Checks with RegExp
   static bool _hasMatch(String? value, String pattern) {
     return (value == null) ? false : RegExp(pattern).hasMatch(value);

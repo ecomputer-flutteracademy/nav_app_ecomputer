@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nav_app_ecomputer/core/locator/locator.dart';
+import 'package:nav_app_ecomputer/core/routes/app_router.dart';
 import 'package:nav_app_ecomputer/modules/auth/ui/widgets/basic_text_form.dart';
 import 'package:nav_app_ecomputer/modules/start/cubits/cubit/start_cubit.dart';
 import 'package:nav_app_ecomputer/utils/validators.dart';
@@ -71,6 +72,8 @@ class LoginPage extends StatelessWidget {
                 onTap: () {
                   if (formKey.currentState!.validate()) {
                     print("Este Formulario es Verdadero");
+                    locator<StartCubit>()
+                        .checkIfUserIsLogged(isUserLogged: true);
                   } else {
                     print("Vuelve a Intentarlo");
                   }
@@ -92,7 +95,24 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
+              const SizedBox(
+                height: 30.0,
+              ),
+              TextButton(
+                onPressed: () {
+                  context.goNamed(AppRoutes.register.name);
+                  print("Navegandooo");
+                },
+                child: Text(
+                  "¿Aún no tienes cuenta? Registrate Aquí",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
