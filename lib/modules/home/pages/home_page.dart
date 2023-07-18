@@ -10,46 +10,72 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return Scaffold(
+    //   floatingActionButton: FloatingActionButton(
+    //     onPressed: () {
+    //       print("Hola mmundo");
+    //       Navigator.push(
+    //         context,
+    //         MaterialPageRoute(builder: (context) => DetailsPage()),
+    //       );
+    //       context.goNamed(AppRoutes.bicicletas.name);
+    //     },
+    //     heroTag: 'F3',
+    //     child: const Icon(
+    //       Icons.add,
+    //     ),
+    //   ),
+    //   floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+    //   body: Center(
+    //     child: Column(
+    //       mainAxisAlignment: MainAxisAlignment.center,
+    //       children: [
+    //         FloatingActionButton(
+    //           onPressed: () {
+    //             context.goNamed(AppRoutes.camisetas.name);
+    //           },
+    //           heroTag: 'F2',
+    //           child: const Icon(
+    //             Icons.remove,
+    //           ),
+    //         ),
+    //         SizedBox(
+    //           height: 20,
+    //         ),
+    //         FloatingActionButton(
+    //           onPressed: () {
+    //             locator<StartCubit>().checkIfUserIsLogged(isUserLogged: false);
+    //           },
+    //           heroTag: 'F1',
+    //           child: const Icon(
+    //             Icons.close,
+    //           ),
+    //         ),
+    //       ],
+    //     ),
+    //   ),
+    // );
+
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print("Hola mmundo");
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => DetailsPage()),
-          );
-          context.goNamed(AppRoutes.bicicletas.name);
-        },
-        heroTag: 'F3',
-        child: const Icon(
-          Icons.add,
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FloatingActionButton(
-              onPressed: () {
-                context.goNamed(AppRoutes.camisetas.name);
+            GestureDetector(
+              onTap: () {
+                context.goNamed(AppRoutes.homeRickMorty.name);
               },
-              heroTag: 'F2',
-              child: const Icon(
-                Icons.remove,
+              child: const CircleAvatar(
+                radius: 75,
+                backgroundImage:
+                    AssetImage("assets/images/module_rick_morty.png"),
               ),
             ),
-            SizedBox(
-              height: 20,
+            const SizedBox(
+              height: 50,
             ),
-            FloatingActionButton(
-              onPressed: () {
-                locator<StartCubit>().checkIfUserIsLogged(isUserLogged: false);
-              },
-              heroTag: 'F1',
-              child: const Icon(
-                Icons.close,
-              ),
+            const CircleAvatar(
+              radius: 75,
             ),
           ],
         ),

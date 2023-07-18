@@ -9,6 +9,7 @@ import 'package:nav_app_ecomputer/modules/auth/ui/pages/welcome_page.dart';
 import 'package:nav_app_ecomputer/modules/bicicletas/pages/bicicletas_page.dart';
 import 'package:nav_app_ecomputer/modules/camisetas/pages/camisetas_page.dart';
 import 'package:nav_app_ecomputer/modules/home/pages/home_page.dart';
+import 'package:nav_app_ecomputer/modules/home_rick_morty/ui/pages/home_rick_morty.dart';
 import 'package:nav_app_ecomputer/modules/start/cubits/cubit/start_cubit.dart';
 import 'package:nav_app_ecomputer/modules/start/ui/pages/startup_page.dart';
 
@@ -20,6 +21,7 @@ enum AppRoutes {
   home,
   bicicletas,
   camisetas,
+  homeRickMorty,
   startup,
 }
 
@@ -36,6 +38,7 @@ final List<String> routesWihtAuth = [
   '/home',
   '/home/camisetas',
   '/home/bicicletas',
+  '/home/homeRickMorty'
 ];
 
 final goRouter = GoRouter(
@@ -104,6 +107,13 @@ final goRouter = GoRouter(
           name: AppRoutes.bicicletas.name,
           builder: (context, state) {
             return const BicicletasPage();
+          },
+        ),
+        GoRoute(
+          path: 'homeRickMorty',
+          name: AppRoutes.homeRickMorty.name,
+          builder: (context, state) {
+            return const HomeRickMorty();
           },
         ),
       ],
