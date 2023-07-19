@@ -12,14 +12,114 @@ class HomeRickMorty extends StatelessWidget {
       bloc: locator<CharactersCubit>()..init(),
       builder: (context, state) {
         return Scaffold(
-          body: ListView.builder(
-            itemCount: state.characters.length,
-            itemBuilder: (context, index) {
-              return Text(state.characters[index].name ?? '');
-            },
+          body: Padding(
+            padding: const EdgeInsets.only(
+              left: 20,
+              right: 20,
+              top: 20,
+            ),
+            child: ListView.builder(
+              itemCount: state.characters.length,
+              itemBuilder: (context, index) {
+                // return Text(state.characters[index].name ?? '');
+
+                return Column(
+                  children: [
+                    Container(
+                      height: 200,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.grey[700],
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        child: Row(
+                          children: [
+                            Flexible(
+                              flex: 6,
+                              child: Container(
+                                height: double.infinity,
+                                child: Image.network(
+                                  state.characters[index].image ?? '',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            Flexible(
+                                flex: 7,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        state.characters[index].name ?? '',
+                                        style: const TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      Row(
+                                        children: [
+                                          circleColorStatus(
+                                              state.characters[index].status ??
+                                                  ''),
+                                          if (state.characters[index].status ==
+                                              "Dead")
+                                            CircleAvatar(
+                                              backgroundColor: Colors.red,
+                                              radius: 5,
+                                            ),
+                                          SizedBox(
+                                            width: 5,
+                                          ),
+                                          Text(
+                                            state.characters[index].status ??
+                                                '',
+                                            style: const TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                )),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         );
       },
     );
+  }
+
+  Widget circleColorStatus(String status) {
+    switch (status) {
+      case "Alive":
+        return CircleAvatar(
+          backgroundColor: Colors.green,
+          radius: 5,
+        );
+
+      default:
+        return Container();
+    }
   }
 }
