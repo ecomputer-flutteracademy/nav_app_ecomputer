@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nav_app_ecomputer/core/locator/locator.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/cubit/characters/characters_cubit.dart';
+import 'package:nav_app_ecomputer/modules/home_rick_morty/ui/widgets/circle_color_status.dart';
 
 class HomeRickMorty extends StatelessWidget {
   const HomeRickMorty({Key? key}) : super(key: key);
@@ -67,15 +68,10 @@ class HomeRickMorty extends StatelessWidget {
                                       ),
                                       Row(
                                         children: [
-                                          circleColorStatus(
-                                              state.characters[index].status ??
+                                          CircleColorStatus(
+                                              status: state.characters[index]
+                                                      .status ??
                                                   ''),
-                                          if (state.characters[index].status ==
-                                              "Dead")
-                                            CircleAvatar(
-                                              backgroundColor: Colors.red,
-                                              radius: 5,
-                                            ),
                                           SizedBox(
                                             width: 5,
                                           ),
@@ -108,18 +104,5 @@ class HomeRickMorty extends StatelessWidget {
         );
       },
     );
-  }
-
-  Widget circleColorStatus(String status) {
-    switch (status) {
-      case "Alive":
-        return CircleAvatar(
-          backgroundColor: Colors.green,
-          radius: 5,
-        );
-
-      default:
-        return Container();
-    }
   }
 }
