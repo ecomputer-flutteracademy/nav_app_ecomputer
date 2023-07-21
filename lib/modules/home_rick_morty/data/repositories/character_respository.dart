@@ -17,6 +17,7 @@ class CharacterRepository {
 
     final List<dynamic> responseResults = responseBody['results'];
 
+    //Trabajo Global
     charactersModel = responseBody['results']
         .map<CharacterModel>((e) => CharacterModel.fromJson(e))
         .toList();

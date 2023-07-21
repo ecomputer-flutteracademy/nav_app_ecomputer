@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nav_app_ecomputer/core/locator/locator.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/cubit/characters/characters_cubit.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/ui/widgets/circle_color_status.dart';
@@ -13,6 +14,14 @@ class HomeRickMorty extends StatelessWidget {
       bloc: locator<CharactersCubit>()..init(),
       builder: (context, state) {
         return Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              onPressed: () {
+                context.pop();
+              },
+              icon: Icon(Icons.arrow_back),
+            ),
+          ),
           body: Padding(
             padding: const EdgeInsets.only(
               left: 20,
