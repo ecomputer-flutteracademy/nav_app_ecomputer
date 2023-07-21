@@ -10,6 +10,7 @@ import 'package:nav_app_ecomputer/modules/bicicletas/pages/bicicletas_page.dart'
 import 'package:nav_app_ecomputer/modules/camisetas/pages/camisetas_page.dart';
 import 'package:nav_app_ecomputer/modules/home/pages/home_page.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/ui/pages/home_rick_morty.dart';
+import 'package:nav_app_ecomputer/modules/mobile_local/ui/pages/mobile_local_page.dart';
 import 'package:nav_app_ecomputer/modules/start/cubits/cubit/start_cubit.dart';
 import 'package:nav_app_ecomputer/modules/start/ui/pages/startup_page.dart';
 
@@ -23,6 +24,7 @@ enum AppRoutes {
   camisetas,
   homeRickMorty,
   startup,
+  mobileLocal,
 }
 
 final useBloc = locator<StartCubit>();
@@ -38,7 +40,8 @@ final List<String> routesWihtAuth = [
   '/home',
   '/home/camisetas',
   '/home/bicicletas',
-  '/home/homeRickMorty'
+  '/home/homeRickMorty',
+  '/home/mobileLocal'
 ];
 
 final goRouter = GoRouter(
@@ -114,6 +117,13 @@ final goRouter = GoRouter(
           name: AppRoutes.homeRickMorty.name,
           builder: (context, state) {
             return const HomeRickMorty();
+          },
+        ),
+        GoRoute(
+          path: 'mobileLocal',
+          name: AppRoutes.mobileLocal.name,
+          builder: (context, state) {
+            return const MobileLocalPage();
           },
         ),
       ],
