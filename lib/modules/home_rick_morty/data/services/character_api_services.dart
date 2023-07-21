@@ -1,12 +1,11 @@
-import 'dart:convert';
-
 import 'package:nav_app_ecomputer/core/apis/rick_morty_api.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/data/models/character_model.dart';
 import 'package:http/http.dart' as http;
 
 class CharacterApiServices {
-  Future<List<CharacterModel>> getCharacterPerPage(int page) async {
-    List<CharacterModel> charactersModel = [];
+  Future<http.Response?> getCharactersPerPage(int page) async {
+    // List<CharacterModel> charactersModel = [];
+    http.Response? myResponse;
     try {
       var httpsUri = Uri(
         scheme: 'https',
@@ -18,22 +17,24 @@ class CharacterApiServices {
       );
 
       await http.get(httpsUri).then((response) {
-        final responseBody = jsonDecode(response.body);
-        print(responseBody['results']);
+        // final responseBody = jsonDecode(response.body);
+        // print(responseBody['results']);
 
-        final List<dynamic> responseResults = responseBody['results'];
+        // final List<dynamic> responseResults = responseBody['results'];
 
         // charactersModel = responseBody['results']
         //     .map<CharacterModel>((e) => CharacterModel.fromJson(e))
         //     .toList();
-        charactersModel = responseResults
-            .map<CharacterModel>((e) => CharacterModel.fromJson(e))
-            .toList();
+        // charactersModel = responseResults
+        //     .map<CharacterModel>((e) => CharacterModel.fromJson(e))
+        //     .toList();
+        myResponse = response;
       });
-
-      return charactersModel;
+      return myResponse;
+      // return charactersModel;
     } catch (e) {
-      return charactersModel;
+      // return charactersModel;
+      return null;
     }
   }
 }
