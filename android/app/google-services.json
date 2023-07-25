@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "647929056130",
+    "project_id": "ecomputer-fa-dev",
+    "storage_bucket": "ecomputer-fa-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647929056130:android:efd8beb7f179725c4e9d9b",
+        "android_client_info": {
+          "package_name": "com.example.nav_app_ecomputer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647929056130-br6vegf641e1ea54innbnoi5fjm8cm4d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ0i-U0CWkXiLQYM09eqUO1Xf_uKpXpRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647929056130-br6vegf641e1ea54innbnoi5fjm8cm4d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
