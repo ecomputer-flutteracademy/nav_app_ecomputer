@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -23,7 +25,7 @@ class MobileLocalPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: BlocBuilder<MobileDataCubit, MobileDataState>(
-            bloc: locator<MobileDataCubit>(),
+            bloc: locator<MobileDataCubit>()..getMobileLocalData(),
             builder: (context, state) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -45,11 +47,26 @@ class MobileLocalPage extends StatelessWidget {
                   MobileButton(
                     title: 'Añadir Datos',
                     colorButton: Colors.purple[100]!,
+                    onTap: () async {
+                      // Image.network(src),
+                      // Image.file(File(path)),
+
+                      // XFile xFile = await ImagePickerFunciton()
+
+                      // String myPath = xFile.path;
+
+                      String? pathImage = "Este es el path de mi imagen";
+                      await locator<MobileDataCubit>()
+                          .setMobileData(name: pathImage);
+                    },
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  const MobileButton(
+                  MobileButton(
+                    onTap: () async {
+                      await locator<MobileDataCubit>().getMobileLocalData();
+                    },
                     colorButton: Colors.lightGreen,
                     title: 'Recuperar Datos',
                   ),
