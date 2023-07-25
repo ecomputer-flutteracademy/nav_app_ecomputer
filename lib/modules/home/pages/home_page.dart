@@ -86,7 +86,7 @@ class HomePage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                context.goNamed(AppRoutes.mobileLocal.name);
+                context.goNamed(AppRoutes.firebase.name);
               },
               child: const CircleAvatar(
                 radius: 75,
