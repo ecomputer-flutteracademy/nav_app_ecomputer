@@ -81,6 +81,18 @@ class HomePage extends StatelessWidget {
                     AssetImage("assets/images/mobile_local_db.png"),
               ),
             ),
+            const SizedBox(
+              height: 50,
+            ),
+            GestureDetector(
+              onTap: () {
+                context.goNamed(AppRoutes.mobileLocal.name);
+              },
+              child: const CircleAvatar(
+                radius: 75,
+                backgroundImage: AssetImage("assets/images/firebase_image.png"),
+              ),
+            ),
           ],
         ),
       ),

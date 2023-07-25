@@ -8,6 +8,7 @@ import 'package:nav_app_ecomputer/modules/auth/ui/pages/register_page.dart';
 import 'package:nav_app_ecomputer/modules/auth/ui/pages/welcome_page.dart';
 import 'package:nav_app_ecomputer/modules/bicicletas/pages/bicicletas_page.dart';
 import 'package:nav_app_ecomputer/modules/camisetas/pages/camisetas_page.dart';
+import 'package:nav_app_ecomputer/modules/firebase/ui/pages/firebase_page.dart';
 import 'package:nav_app_ecomputer/modules/home/pages/home_page.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/ui/pages/home_rick_morty.dart';
 import 'package:nav_app_ecomputer/modules/mobile_local/ui/pages/mobile_local_page.dart';
@@ -25,6 +26,7 @@ enum AppRoutes {
   homeRickMorty,
   startup,
   mobileLocal,
+  firebase,
 }
 
 final useBloc = locator<StartCubit>();
@@ -41,7 +43,8 @@ final List<String> routesWihtAuth = [
   '/home/camisetas',
   '/home/bicicletas',
   '/home/homeRickMorty',
-  '/home/mobileLocal'
+  '/home/mobileLocal',
+  '/home/firebase',
 ];
 
 final goRouter = GoRouter(
@@ -124,6 +127,13 @@ final goRouter = GoRouter(
           name: AppRoutes.mobileLocal.name,
           builder: (context, state) {
             return const MobileLocalPage();
+          },
+        ),
+        GoRoute(
+          path: 'firebase',
+          name: AppRoutes.firebase.name,
+          builder: (context, state) {
+            return const FirebasePage();
           },
         ),
       ],
