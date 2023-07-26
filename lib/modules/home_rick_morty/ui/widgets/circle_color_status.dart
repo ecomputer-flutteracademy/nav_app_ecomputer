@@ -8,12 +8,12 @@ class CircleColorStatus extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (status) {
       case "Alive":
-        return CircleAvatar(
+        return const CircleAvatar(
           backgroundColor: Colors.green,
           radius: 5,
         );
       case "Dead":
-        return CircleAvatar(
+        return const CircleAvatar(
           backgroundColor: Colors.red,
           radius: 5,
         );

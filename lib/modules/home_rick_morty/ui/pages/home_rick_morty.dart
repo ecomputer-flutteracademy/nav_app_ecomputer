@@ -19,7 +19,7 @@ class HomeRickMorty extends StatelessWidget {
               onPressed: () {
                 context.pop();
               },
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
             ),
           ),
           body: Padding(
@@ -40,15 +40,15 @@ class HomeRickMorty extends StatelessWidget {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: Colors.grey[700],
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        borderRadius: const BorderRadius.all(Radius.circular(20)),
                       ),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        borderRadius: const BorderRadius.all(Radius.circular(20)),
                         child: Row(
                           children: [
                             Flexible(
                               flex: 6,
-                              child: Container(
+                              child: SizedBox(
                                 height: double.infinity,
                                 child: Image.network(
                                   state.characters[index].image ?? '',
@@ -72,7 +72,7 @@ class HomeRickMorty extends StatelessWidget {
                                           color: Colors.white,
                                         ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 5,
                                       ),
                                       Row(
@@ -81,7 +81,7 @@ class HomeRickMorty extends StatelessWidget {
                                               status: state.characters[index]
                                                       .status ??
                                                   ''),
-                                          SizedBox(
+                                          const SizedBox(
                                             width: 5,
                                           ),
                                           Text(

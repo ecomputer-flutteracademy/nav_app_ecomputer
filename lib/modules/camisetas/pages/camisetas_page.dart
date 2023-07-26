@@ -16,7 +16,7 @@ class CamisetasPage extends StatelessWidget {
             onPressed: () {
               context.pop();
             },
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back,
             ),
           ),
@@ -25,13 +25,13 @@ class CamisetasPage extends StatelessWidget {
               context.goNamed(AppRoutes.bicicletas.name);
             },
             heroTag: 'F2',
-            child: Icon(
+            child: const Icon(
               Icons.arrow_forward,
             ),
           ),
         ],
       ),
-      body: Center(
+      body: const Center(
         child: Text("CAMISETAS PAGE"),
       ),
     );

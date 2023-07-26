@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nav_app_ecomputer/core/locator/locator.dart';
 import 'package:nav_app_ecomputer/modules/firebase/cubits/firebase_cubit/firebase_cubit.dart';
-import 'package:nav_app_ecomputer/modules/firebase/data/models/user_model.dart';
-import 'package:nav_app_ecomputer/modules/firebase/data/repository/firebase_user_repository.dart';
 
 class FirebasePage extends StatelessWidget {
   const FirebasePage({Key? key}) : super(key: key);

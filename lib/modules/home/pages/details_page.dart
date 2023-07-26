@@ -7,7 +7,7 @@ class DetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomAppBar(),
+      bottomNavigationBar: const BottomAppBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         heroTag: 'F1',

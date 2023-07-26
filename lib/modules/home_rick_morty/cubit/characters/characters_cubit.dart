@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/data/models/character_model.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/data/repositories/character_respository.dart';
-import 'package:nav_app_ecomputer/modules/home_rick_morty/data/services/character_api_services.dart';
 
 part 'characters_state.dart';
 

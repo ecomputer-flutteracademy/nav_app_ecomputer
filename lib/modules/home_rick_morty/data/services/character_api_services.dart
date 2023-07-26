@@ -1,5 +1,4 @@
 import 'package:nav_app_ecomputer/core/apis/rick_morty_api.dart';
-import 'package:nav_app_ecomputer/modules/home_rick_morty/data/models/character_model.dart';
 import 'package:http/http.dart' as http;
 
 class CharacterApiServices {

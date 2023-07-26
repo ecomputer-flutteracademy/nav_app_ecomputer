@@ -92,7 +92,7 @@ class RegisterPage extends StatelessWidget {
                 onPressed: () {
                   context.goNamed(AppRoutes.login.name);
                 },
-                child: Text(
+                child: const Text(
                   "¿Ya tienes cuenta?",
                   style: TextStyle(
                     fontSize: 20.0,

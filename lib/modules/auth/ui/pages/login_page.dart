@@ -104,7 +104,7 @@ class LoginPage extends StatelessWidget {
                   context.goNamed(AppRoutes.register.name);
                   print("Navegandooo");
                 },
-                child: Text(
+                child: const Text(
                   "¿Aún no tienes cuenta? Registrate Aquí",
                   style: TextStyle(
                     fontSize: 20.0,

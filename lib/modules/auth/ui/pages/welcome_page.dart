@@ -12,11 +12,11 @@ class WelcomePage extends StatelessWidget {
         onPressed: () {
           context.goNamed(AppRoutes.login.name);
         },
-        child: Icon(
+        child: const Icon(
           Icons.arrow_forward_ios,
         ),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Bienvenid@'),
       ),
     );
