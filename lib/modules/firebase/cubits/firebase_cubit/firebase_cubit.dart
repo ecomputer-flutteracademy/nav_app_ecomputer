@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nav_app_ecomputer/modules/firebase/data/models/user_model.dart';
+import 'package:nav_app_ecomputer/models/user_model.dart';
+
 import 'package:nav_app_ecomputer/modules/firebase/data/repository/firebase_user_repository.dart';
 
 part 'firebase_state.dart';

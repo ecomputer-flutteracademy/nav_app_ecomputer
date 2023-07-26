@@ -8,7 +8,7 @@ class StartCubit extends Cubit<StartState> {
   Future<void> init() async {
     //NOTA: Este valor procede de un service
     //NOTA: Este valor es de forma INICIAL
-    bool isUserLogged = true;
+    bool isUserLogged = false;
 
     print("Hola estoy inicializando mi cubit");
 

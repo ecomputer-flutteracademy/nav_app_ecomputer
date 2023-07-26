@@ -1,4 +1,4 @@
-import 'package:nav_app_ecomputer/modules/firebase/data/models/user_model.dart';
+import 'package:nav_app_ecomputer/models/user_model.dart';
 import 'package:nav_app_ecomputer/modules/firebase/data/services/firestore_service_users.dart';
 
 class FirebaseUserRepository {

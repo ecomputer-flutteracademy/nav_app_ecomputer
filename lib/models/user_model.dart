@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user_model.g.dart';
@@ -18,4 +19,11 @@ class UserModel {
       _$UserModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserModelToJson(this);
+
+  factory UserModel.fromFirebaseUser(UserCredential firebaseCredentials) {
+    return UserModel(
+      uid: firebaseCredentials.user?.uid ?? '',
+      name: firebaseCredentials.user?.displayName ?? '',
+    );
+  }
 }
