@@ -11,20 +11,30 @@ class MobileDataCubit extends Cubit<MobileDataState> {
   Future<void> setMobileData({
     String? name,
     bool? isVip,
+    bool? isUserLogged,
   }) async {
     MobileDataModel mobileDataModel = MobileDataModel(
       mobileName: name,
       isVip: isVip,
+      isUserLogged: isUserLogged,
     );
     await mobileLocalRepository.setMobileLocalData(
         mobileDataModel: mobileDataModel);
 
-    emit(state.copyWith(name: name, isVip: isVip));
+    emit(state.copyWith(
+      name: name,
+      isVip: isVip,
+      isUserLogged: isUserLogged,
+    ));
   }
 
   Future<void> getMobileLocalData() async {
     MobileDataModel myData = await mobileLocalRepository.getMobileLocalData();
 
-    emit(state.copyWith(name: myData.mobileName, isVip: myData.isVip));
+    emit(state.copyWith(
+      name: myData.mobileName,
+      isVip: myData.isVip,
+      isUserLogged: myData.isUserLogged,
+    ));
   }
 }

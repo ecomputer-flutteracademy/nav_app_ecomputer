@@ -10,10 +10,12 @@ MobileDataModel _$MobileDataModelFromJson(Map<String, dynamic> json) =>
     MobileDataModel(
       mobileName: json['mobileName'] as String?,
       isVip: json['isVip'] as bool?,
+      isUserLogged: json['isUserLogged'] as bool?,
     );
 
 Map<String, dynamic> _$MobileDataModelToJson(MobileDataModel instance) =>
     <String, dynamic>{
       'mobileName': instance.mobileName,
       'isVip': instance.isVip,
+      'isUserLogged': instance.isUserLogged,
     };

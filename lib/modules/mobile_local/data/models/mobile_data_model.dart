@@ -7,9 +7,11 @@ part 'mobile_data_model.g.dart';
 class MobileDataModel {
   String? mobileName;
   bool? isVip;
+  bool? isUserLogged;
   MobileDataModel({
     this.mobileName,
     this.isVip,
+    this.isUserLogged,
   });
 
   factory MobileDataModel.fromJson(Map<String, dynamic> json) =>

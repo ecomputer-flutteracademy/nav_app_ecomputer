@@ -6,7 +6,7 @@ class StartState {
   StartState({this.isLogged});
 
   factory StartState.initial() {
-    return StartState();
+    return StartState(isLogged: false);
   }
 
   StartState copyWith({
