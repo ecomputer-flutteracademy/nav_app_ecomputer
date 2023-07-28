@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nav_app_ecomputer/core/locator/locator.dart';
 import 'package:nav_app_ecomputer/core/routes/app_router.dart';
+import 'package:nav_app_ecomputer/modules/auth/cubits/auth_cubit/auth_cubit.dart';
 import 'package:nav_app_ecomputer/modules/auth/data/services/firebase_auth_service.dart';
 import 'package:nav_app_ecomputer/modules/auth/ui/widgets/basic_text_form.dart';
 import 'package:nav_app_ecomputer/modules/start/cubits/cubit/start_cubit.dart';
@@ -64,14 +65,19 @@ class RegisterPage extends StatelessWidget {
                     print("Este Formulario es Verdadero");
                     // locator<StartCubit>()
                     //     .checkIfUserIsLogged(isUserLogged: true);
-                    final myFirebaseUser =
-                        await FirebaseAuthService().signUpWithEmailAndPassword(
+                    // final myFirebaseUser =
+                    //     await FirebaseAuthService().signUpWithEmailAndPassword(
+                    //   email: emailController.text,
+                    //   password: passController.text,
+                    // );
+
+                    // print(myFirebaseUser!.name);
+                    // print(myFirebaseUser.uid);
+
+                    locator<AuthCubit>().signUpWithEmailAndPassword(
                       email: emailController.text,
                       password: passController.text,
                     );
-
-                    print(myFirebaseUser!.name);
-                    print(myFirebaseUser.uid);
                   } else {
                     print("Vuelve a Intentarlo");
                   }

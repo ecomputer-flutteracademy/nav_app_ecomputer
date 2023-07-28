@@ -29,4 +29,22 @@ class FirebaseAuthService {
       return null;
     }
   }
+
+  Future<UserModel?> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final myFirebaseUser = await _firebaseAuth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      ); //.then((value) => UserModel.fromFirebaseUser(value));
+
+      UserModel? myUser = UserModel.fromFirebaseUser(myFirebaseUser);
+
+      return myUser;
+    } on FirebaseException catch (e) {
+      return null;
+    }
+  }
 }
