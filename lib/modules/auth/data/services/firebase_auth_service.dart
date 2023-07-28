@@ -43,7 +43,7 @@ class FirebaseAuthService {
       UserModel? myUser = UserModel.fromFirebaseUser(myFirebaseUser);
 
       return myUser;
-    } on FirebaseException catch (e) {
+    } on FirebaseException catch (_) {
       return null;
     }
   }

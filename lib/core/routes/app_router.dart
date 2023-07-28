@@ -10,6 +10,7 @@ import 'package:nav_app_ecomputer/modules/bicicletas/pages/bicicletas_page.dart'
 import 'package:nav_app_ecomputer/modules/camisetas/pages/camisetas_page.dart';
 import 'package:nav_app_ecomputer/modules/firebase/ui/pages/firebase_page.dart';
 import 'package:nav_app_ecomputer/modules/home/pages/home_page.dart';
+import 'package:nav_app_ecomputer/modules/home_rick_morty/ui/pages/details_rick_morty.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/ui/pages/home_rick_morty.dart';
 import 'package:nav_app_ecomputer/modules/mobile_local/ui/pages/mobile_local_page.dart';
 import 'package:nav_app_ecomputer/modules/start/cubits/cubit/start_cubit.dart';
@@ -24,6 +25,7 @@ enum AppRoutes {
   bicicletas,
   camisetas,
   homeRickMorty,
+  detailsRickMorty,
   startup,
   mobileLocal,
   firebase,
@@ -43,6 +45,7 @@ final List<String> routesWihtAuth = [
   '/home/camisetas',
   '/home/bicicletas',
   '/home/homeRickMorty',
+  '/home/homeRickMorty/detailsRickMorty',
   '/home/mobileLocal',
   '/home/firebase',
 ];
@@ -116,12 +119,20 @@ final goRouter = GoRouter(
           },
         ),
         GoRoute(
-          path: 'homeRickMorty',
-          name: AppRoutes.homeRickMorty.name,
-          builder: (context, state) {
-            return const HomeRickMorty();
-          },
-        ),
+            path: 'homeRickMorty',
+            name: AppRoutes.homeRickMorty.name,
+            builder: (context, state) {
+              return const HomeRickMorty();
+            },
+            routes: [
+              GoRoute(
+                path: 'detailsRickMorty',
+                name: AppRoutes.detailsRickMorty.name,
+                builder: (context, state) {
+                  return const DetailsRickMorty();
+                },
+              ),
+            ]),
         GoRoute(
           path: 'mobileLocal',
           name: AppRoutes.mobileLocal.name,
