@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:nav_app_ecomputer/core/locator/locator.dart';
 import 'package:nav_app_ecomputer/core/routes/app_router.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/cubit/characters/characters_cubit.dart';
+import 'package:nav_app_ecomputer/modules/home_rick_morty/ui/pages/details_rick_morty.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/ui/widgets/body_card_widget.dart';
 
 class HomeRickMorty extends StatelessWidget {
@@ -36,7 +37,12 @@ class HomeRickMorty extends StatelessWidget {
 
                 return GestureDetector(
                   onTap: () {
-                    context.goNamed(AppRoutes.detailsRickMorty.name);
+                    context.goNamed(
+                      AppRoutes.detailsRickMorty.name,
+                      extra: CharacterRickMortyObject(
+                        character: state.characters[index],
+                      ),
+                    );
                   },
                   child: BodyCardWidget(
                     characterModel: state.characters[index],

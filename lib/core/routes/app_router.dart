@@ -129,7 +129,9 @@ final goRouter = GoRouter(
                 path: 'detailsRickMorty',
                 name: AppRoutes.detailsRickMorty.name,
                 builder: (context, state) {
-                  return const DetailsRickMorty();
+                  return DetailsRickMorty(
+                    characterOject: state.extra as CharacterRickMortyObject,
+                  );
                 },
               ),
             ]),
