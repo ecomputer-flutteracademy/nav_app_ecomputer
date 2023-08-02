@@ -19,4 +19,9 @@ class CharactersCubit extends Cubit<CharactersState> {
 
     emit(newState);
   }
+
+  void changeCharacter({required CharacterModel character}) {
+    final newState = state.copyWith(character: character);
+    emit(newState);
+  }
 }

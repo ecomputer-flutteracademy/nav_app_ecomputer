@@ -43,6 +43,16 @@ class HomeRickMorty extends StatelessWidget {
                         character: state.characters[index],
                       ),
                     );
+
+                    //FALLO => CONTEXT != LOCATOR
+
+                    // context.read<CharactersCubit>().changeCharacter(
+                    //       character: state.characters[index],
+                    //     );
+
+                    // locator<CharactersCubit>().changeCharacter(
+                    //   character: state.characters[index],
+                    // );
                   },
                   child: BodyCardWidget(
                     characterModel: state.characters[index],
