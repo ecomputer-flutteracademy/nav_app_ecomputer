@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/data/models/character_model.dart';
+import 'package:nav_app_ecomputer/modules/home_rick_morty/ui/widgets/card_informaiton_character.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/ui/widgets/top_details_character_widget.dart';
 import 'package:nav_app_ecomputer/theme/app_colors.dart';
 import 'package:nav_app_ecomputer/theme/app_fonts.dart';
@@ -37,35 +38,46 @@ class DetailsRickMorty extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
+      body: ListView(
         children: [
           TopDetailsCharacterWidget(
             character: characterOject.character,
           ),
-          Text(
-            characterOject.character?.id.toString() ?? '',
-            style: TEXT_THEME_WHITE.bodyLarge,
-          ),
-          Text(
-            characterOject.character?.name ?? '',
-            style: TEXT_THEME_WHITE.bodyLarge!
-                .copyWith(color: AppColors.COLOR_BLACK),
-          ),
-          Text(
-            characterOject.character?.status ?? '',
-            style: TEXT_THEME_WHITE.bodyLarge!
-                .copyWith(color: AppColors.COLOR_BLACK),
-          ),
-          Text(
-            characterOject.character?.image ?? '',
-            style: TEXT_THEME_WHITE.bodyLarge!
-                .copyWith(color: AppColors.COLOR_BLACK),
-          ),
-          Text(
-            characterOject.character?.species ?? '',
-            style: TEXT_THEME_WHITE.bodyLarge!
-                .copyWith(color: AppColors.COLOR_BLACK),
-          ),
+          //DETAILS CHARACTER
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 40,
+            ),
+            child: GridView(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 20,
+                crossAxisSpacing: 20,
+                childAspectRatio: 2,
+              ),
+              children: [
+                CardInformaitonCharacter(
+                  title: "Gender",
+                  description: characterOject.character?.gender ?? '',
+                ),
+                CardInformaitonCharacter(
+                  title: "Origin",
+                  description: characterOject.character?.name ?? '',
+                ),
+                CardInformaitonCharacter(
+                  title: "Type",
+                  description: characterOject.character?.status ?? '',
+                ),
+                CardInformaitonCharacter(
+                  title: "Specie",
+                  description: characterOject.character?.species ?? '',
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );

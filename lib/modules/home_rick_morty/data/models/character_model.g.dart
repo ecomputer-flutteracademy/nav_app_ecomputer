@@ -14,6 +14,7 @@ CharacterModel _$CharacterModelFromJson(Map<String, dynamic> json) =>
       image: json['image'] as String?,
       url: json['url'] as String?,
       species: json['species'] as String?,
+      gender: json['gender'] as String?,
     );
 
 Map<String, dynamic> _$CharacterModelToJson(CharacterModel instance) =>
@@ -24,4 +25,5 @@ Map<String, dynamic> _$CharacterModelToJson(CharacterModel instance) =>
       'image': instance.image,
       'url': instance.url,
       'species': instance.species,
+      'gender': instance.gender,
     };

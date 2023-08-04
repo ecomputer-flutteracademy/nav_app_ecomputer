@@ -11,6 +11,7 @@ class CharacterModel {
   String? image;
   String? url;
   String? species;
+  String? gender;
   CharacterModel({
     this.id,
     this.name,
@@ -18,6 +19,7 @@ class CharacterModel {
     this.image,
     this.url,
     this.species,
+    this.gender,
   });
 
   factory CharacterModel.fromJson(Map<String, dynamic> json) =>
