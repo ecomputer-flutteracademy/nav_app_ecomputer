@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/data/models/character_model.dart';
+import 'package:nav_app_ecomputer/modules/home_rick_morty/ui/widgets/buttons/button_widget.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/ui/widgets/card_informaiton_character.dart';
 import 'package:nav_app_ecomputer/modules/home_rick_morty/ui/widgets/top_details_character_widget.dart';
 import 'package:nav_app_ecomputer/theme/app_colors.dart';
-import 'package:nav_app_ecomputer/theme/app_fonts.dart';
+import 'package:share_plus/share_plus.dart';
 
 class CharacterRickMortyObject {
   final CharacterModel? character;
@@ -45,14 +46,40 @@ class DetailsRickMorty extends StatelessWidget {
           ),
           //DETAILS CHARACTER
           Container(
-            padding: EdgeInsets.symmetric(
+            // height: 200,
+            padding: const EdgeInsets.symmetric(
               horizontal: 20,
               vertical: 40,
             ),
-            child: GridView(
+            child:
+
+                // GridView.builder(
+                //     physics: NeverScrollableScrollPhysics(),
+                //     shrinkWrap: true,
+                //     itemCount: 50,
+                //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                //         crossAxisCount: 3,
+                //         crossAxisSpacing: 10.0,
+                //         mainAxisSpacing: 10.0),
+                //     itemBuilder: (BuildContext context, int index) {
+                //       return Container(
+                //         decoration: BoxDecoration(
+                //           color: Colors.blue,
+                //           borderRadius: BorderRadius.circular(10),
+                //         ),
+                //         child: Center(
+                //           child: Text(
+                //             'Item $index',
+                //             style: TextStyle(fontSize: 20, color: Colors.white),
+                //           ),
+                //         ),
+                //       );
+                //     }),
+
+                GridView(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 20,
                 crossAxisSpacing: 20,
@@ -76,6 +103,20 @@ class DetailsRickMorty extends StatelessWidget {
                   description: characterOject.character?.species ?? '',
                 ),
               ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 20,
+              right: 20,
+              bottom: 20,
+            ),
+            child: ButtonWidget(
+              onPressed: () {
+                Share.share('Mira mi página https://flutteracademy.app/',
+                    subject: '¡Mira que puedo ofrecerte!');
+              },
+              text: 'COMPARTIR',
             ),
           )
         ],
